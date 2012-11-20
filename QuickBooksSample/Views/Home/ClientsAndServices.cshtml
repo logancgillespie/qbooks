@@ -1,0 +1,45 @@
+﻿@model QuickBooksSample.Controllers.ClientListingViewModel
+
+@{
+    ViewBag.Title = "QuickBooks Integration Sample";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Client & Services Listing</h2>
+
+<strong>Account Name:</strong> @(Model.AccountName)
+
+<div style="margin-top:15px">
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th align="left">Client Name</th>
+        </tr>
+        <tbody>
+            @{int counter = 1;}
+            @foreach(var item in Model.ClientList)
+            {
+                <tr>
+                    <td>@(counter.ToString()): @item</td>
+                </tr>
+                counter++;
+            }
+        </tbody>
+    </table>
+</div>
+
+<div style="margin-top:15px">
+    <table cellpadding="0"  cellspacing="0">
+        <tr>
+            <th align="left">Service Name</th>
+        </tr>
+        <tbody>
+            @{counter = 1;}
+            @foreach(var item in Model.ServicesList)
+            {
+                <tr>
+                    <td>@(counter++.ToString()): @item</td>
+                </tr>                   
+            }
+        </tbody>
+    </table>
+</div>

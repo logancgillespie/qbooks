@@ -1,0 +1,46 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "QuickBooks Integration Sample";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts {
+    <script language="javascript">
+        
+        function UpdateTimeActivitiesList() {
+            var theurl = '@Url.Action("ShowTimeActivities", "Home")?' + $('#fetchform').serialize();
+            $.ajax({
+                url: theurl,
+                cache: false,
+                success: function (resp) {
+                    $('#details').html(resp);
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            UpdateTimeActivitiesList();
+            $('#dofetch').click(function() {
+                UpdateTimeActivitiesList();
+            });
+        });
+    </script>
+}
+
+<h2>Time Activity Listing</h2>
+
+<form id="fetchform">
+<div>
+    <strong>Start Date:</strong> @Html.TextBox("StartDate", DateTime.Today, "{0:d}")
+    <br/>
+    <strong>End Date:</strong> @Html.TextBox("EndDate", DateTime.Today, "{0:d}")
+    <br/>
+    <button type="button" id="dofetch">Fetch</button>
+</div>
+</form>
+<hr/>
+<div id="details">
+    
+</div>
+
