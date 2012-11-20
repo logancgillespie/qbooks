@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QuickBooksSample.Models;
 
 namespace QuickBooksSample.Controllers
 {
@@ -85,16 +86,5 @@ namespace QuickBooksSample.Controllers
             return RedirectToAction("Index");
         }
 
-    }
-
-    public class TimeActivityViewModel
-    {
-        public string UserName { get; set; }
-        public DateTime ActivityDate { get; set; }
-        public string ClientName { get; set; }
-        public string ServiceName { get; set; }
-        public bool IsBillable { get; set; }
-        public decimal HoursWorked { get; set; }
-        public string Description { get; set; }
     }
 }

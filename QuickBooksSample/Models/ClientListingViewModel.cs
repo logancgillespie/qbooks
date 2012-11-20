@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace QuickBooksSample.Controllers
+namespace QuickBooksSample.Models
 {
     public class ClientListingViewModel
     {
